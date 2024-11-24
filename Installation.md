@@ -1,40 +1,47 @@
 ## Installation
 
-1. Update your system's package list :
+# 1. Update your system's package list :
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 
 ```
-2. Install Suricata :
+# 2. Install Suricata :
 
 ```bash
 sudo apt install suricata -y
 
 ```
-3. Verify the installation :
+# 3. Verify the installation :
 
 ```bash
 suricata --version 
 
 ```
 
-Step 2: Download and Update Rule Sets
+# 4. Download and Update Rule Sets
 
-1. Install Suricata's rule management tool, suricata-update:
+4.1. Install Suricata's rule management tool, suricata-update:
 
 ```bash
 sudo apt install python3-pip -y
 pip3 install suricata-update
 
 ```
-2. Update and download the latest rules:
+4.2. Download and extract the Emerging Threats Suricata ruleset:
+```
+cd /tmp/ && curl -LO https://rules.emergingthreats.net/open/suricata-6.0.8/emerging.rules.tar.gz
+sudo tar -xvzf emerging.rules.tar.gz && sudo mv rules/*.rules /etc/suricata/rules/
+sudo chmod 640 /etc/suricata/rules/*.rules
+```
+
+# 5. Update and download the latest rules:
 
 ```bash
 sudo suricata-update
 
 ```
-Step 3: Configure Network Interfaces
+# 6. Configure Network Interfaces
 
 1. Identify the network interface to monitor:
 
