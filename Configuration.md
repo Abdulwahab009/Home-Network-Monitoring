@@ -13,11 +13,23 @@ EXTERNAL_NET: "any"
 ```
 ![Screenshot (84)](https://github.com/user-attachments/assets/6fc67fc0-65dc-4cc5-9e5f-9901b6652277)
 
-- Global stats Configuration:
+- 1.1  Global stats Configuration:
 
 stats
 
 enabled: yes
+
+- 1.2 Search for the protocols dnp3 and modbus under app-layer.protocols.
+
+Ensure detection-enabled is set to yes for both:
+app-layer:
+
+  protocols:
+
+    dnp3:
+      detection-enabled: yes
+    modbus:
+      detection-enabled: yes
 
 # 2. Signature/Rules Customization:
 - Add custom rules in /etc/suricata/rules/local.rules.
