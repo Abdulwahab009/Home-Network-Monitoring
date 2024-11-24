@@ -38,6 +38,7 @@ Suricata installed on your VM.
 
 ## Installation
 
+[Installation](Installation.md)
 1. Update your system's package list :
 
 ```bash
