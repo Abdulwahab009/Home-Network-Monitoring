@@ -79,6 +79,9 @@ Run an Nmap scan from another machine:
 ```bash
 nmap -sS <Suricata_VM_IP>
 ```
+![Screenshot (78)](https://github.com/user-attachments/assets/86181977-c5fd-4b92-9c99-f90f3a0fdaf1)
+You can see on screen shot i try to scan my kali machine from my other VM and Suricata is capturing that too that someone is trying to scan machine and generating logs for even Scans.
+
 Check for alerts in eve.json indicating a port scan.
 
 2. Suspicious Traffic Analysis:
