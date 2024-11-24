@@ -1,18 +1,25 @@
 ## ⚙️ Configuration
 
-1. Configure Network Settings: In suricata.yaml, set up:
-
+# 1. Configure Network Settings: In suricata.yaml, set up:
+```bash
+nano /etc/suricata/suricata.yaml
+```
+Use above command to open yaml file for configuration.
 - HOME_NET: Define your internal network range.  
 - EXTERNAL_NET: Set it to !HOME_NET for traffic outside your network.
 ```JavaScript
 HOME_NET: "<UBUNTU_IP or your netwrok Range>"
 EXTERNAL_NET: "any"
 ```
-2. Log Settings:
-- Suricata's logs (including alerts) are stored in /var/log/suricata/.
-- Ensure eve.json logging is enabled for detailed event tracking.
+![Screenshot (84)](https://github.com/user-attachments/assets/6fc67fc0-65dc-4cc5-9e5f-9901b6652277)
 
-3. Rule Customization:
+- Global stats Configuration:
+
+stats
+
+enabled: yes
+
+# 2. Signature/Rules Customization:
 - Add custom rules in /etc/suricata/rules/local.rules.
 ```bash
 alert tcp any any -> any any (option)
@@ -25,13 +32,15 @@ nano Custom.rules
 ```
 it will open nano editor add your rule there and save it.
 
-4. default-rule-path: /etc/suricata/rules
+# 3. default-rule-path: /etc/suricata/rules
 rule-files:
 - "*.rules"
 - This "*.rules" is basically a wild card it will take any rule file that ends with .rules so make sure when you create your custome rules file make sure name it like <Name.rules>
 
-5. Reload rules:
+# 4. Reload rules:
 ```bash
 sudo suricata-update
 ```
-
+# 5. Log Settings:
+- Suricata's logs (including alerts) are stored in /var/log/suricata/.
+- Ensure eve.json logging is enabled for detailed event tracking.
